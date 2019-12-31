@@ -1,0 +1,161 @@
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  width: 100vw;
+  align-items: stretch;
+}
+
+#content {
+  width: 100% !important;
+  background-color: #F2F4F8;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    z-index: 1050;
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    background: #FFF;
+    color: #3E4B5B;
+    transition: all 0.3s;
+    border-right: 1px solid #F2F2F2;
+    /* box-shadow: 1px 2px 5px rgba(0,0,0,0.3); */
+}
+
+#sidebar .sidebar-header {
+    padding: 16px 16px 16.8px 16px;
+    background: #FFF;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+#sidebar ul.components {
+    padding: 20px 0px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+#sidebar ul p {
+    color: #2196F3;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 20px 30px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #FFF;
+    background: #2196f3;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #047BF8;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+      margin-left: -250px;
+  }
+  #sidebar.active {
+      margin-left: 0;
+  }
+}
+
+.navbar {
+  box-shadow: none;
+  border-bottom: 1px solid #F2F2F2;
+}
+
+.main-content {
+  padding: 30px;
+  /* padding-right:0px; */
+  /* margin-right:0px; */
+}
+
+.breadcrumb {
+  margin-bottom: 0px;
+  padding-left: 30px;
+}
+
+.element-header {
+  border-bottom: 1px solid #CCC;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.element-header:after {
+  content: "";
+  background-color: #047bf8;
+  width: 100px;
+  height: 8px;
+  border-radius: 0px;
+  display: block;
+  position: absolute;
+  bottom: -8px;
+  left: 0px;
+}
+
+.card {
+  box-shadow: 0px 2px 4px rgba(126, 142, 177, 0.12);
+  /* transition: all 0.25s ease; */
+  animation-name: fadeDown;
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+}
+
+.card:hover {
+  box-shadow: 2px 6px 10px rgba(126, 142, 177, 0.5);
+  animation-name: fadeUp;
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  /* transition: all 0.25s ease; */
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(0px);
+    box-shadow: 0px 2px 4px rgba(126, 142, 177, 0.12);
+  }
+  to {
+    transform: translateY(-10px);
+    box-shadow: 2px 6px 10px rgba(126, 142, 177, 0.5);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    transform: translateY(-10px);
+    box-shadow: 2px 6px 10px rgba(126, 142, 177, 0.5);
+  }
+  to {
+    transform: translateY(0px);
+    box-shadow: 0px 2px 4px rgba(126, 142, 177, 0.12);
+  }
+}
+
+.add-event-card {
+  border: 0px dashed red;
+
+}
+
+.form-section {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}

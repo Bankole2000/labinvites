@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/toast.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <title>LiviaSoft Labs | Events</title>
+</head>
+<body>
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+    <a class="navbar-brand" href="#"><img src="assets/img/fulllogo.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Events <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Send Invites</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+    </div>
+  </nav> -->
+  <div class="wrapper">
+    <!-- Side bar -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+          <img src="assets/img/fulllogo.png" alt="">
+      </div>
+      
+      <ul class="list-unstyled components">
+        <p>Welcome {{ User }}</p>         
+          <li class="active">
+              <a href="events.html">Dashboard</a>
+          </li>
+          <li>
+            <a href="send.html">Send Invites</a>
+          </li>
+          <li>
+              <a href="users.html">Manage Users</a>
+          </li>
+          <li>
+              <a href="" id="logout">Logout</a>
+          </li>
+      </ul>
+    </nav>
+
+    <!-- Page Content -->
+    <div id="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fas fa-align-left"></i>
+                <span>Toggle Sidebar</span>
+            </button>
+
+        </div>
+      </nav>
+      
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active">Home</li>
+      </ol>
+        <!-- <div class="card mb-3">
+          <h3 class="card-header">Card header</h3>
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+          </div>
+          <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image">
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+          <div class="card-footer text-muted">
+            2 days ago
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div> -->
+      <div class="container main-content">
+        <div class="row">
+          <div class="col-sm-12">
+            <h1 class="element-header">Events <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+             + Add New Event
+            </button> </h1>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Event Title</h5>
+                    <h6 class="card-subtitle text-muted">Event Subtitle</h6>
+                  </div>
+                  <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image">
+                  <!-- <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div> -->
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Date: </li>
+                    <li class="list-group-item">Venue: </li>
+                    <!-- <li class="list-group-item">Vestibulum at eros</li> -->
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="btn card-link">Edit Event</a>
+                    <a href="#" class="btn card-link">Manage Invites</a>
+                  </div>
+                  <div class="card-footer text-muted">
+                    Posted 2 days ago
+                  </div>
+                </div>
+                
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Event Title</h5>
+                    <h6 class="card-subtitle text-muted">Event Subtitle</h6>
+                  </div>
+                  <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image">
+                  <!-- <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div> -->
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Date: </li>
+                    <li class="list-group-item">Venue: </li>
+                    <!-- <li class="list-group-item">Vestibulum at eros</li> -->
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="btn card-link">Edit Event</a>
+                    <a href="#" class="btn card-link">Manage Invites</a>
+                  </div>
+                  <div class="card-footer text-muted">
+                    Posted 2 days ago
+                  </div>
+                </div>
+                
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Event Title</h5>
+                    <h6 class="card-subtitle text-muted">Event Subtitle</h6>
+                  </div>
+                  <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image">
+                  <!-- <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div> -->
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Date: </li>
+                    <li class="list-group-item">Venue: </li>
+                    <!-- <li class="list-group-item">Vestibulum at eros</li> -->
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="btn card-link">Edit Event</a>
+                    <a href="#" class="btn card-link">Manage Invites</a>
+                  </div>
+                  <div class="card-footer text-muted">
+                    Posted 2 days ago
+                  </div>
+                </div>
+                
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Event Title</h5>
+                    <h6 class="card-subtitle text-muted">Event Subtitle</h6>
+                  </div>
+                  <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image">
+                  <!-- <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div> -->
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Date: </li>
+                    <li class="list-group-item">Venue: </li>
+                    <!-- <li class="list-group-item">Vestibulum at eros</li> -->
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="btn card-link">Edit Event</a>
+                    <a href="#" class="btn card-link">Manage Invites</a>
+                  </div>
+                  <div class="card-footer text-muted">
+                    Posted 2 days ago
+                  </div>
+                </div>
+                
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Event Title</h5>
+                    <h6 class="card-subtitle text-muted">Event Subtitle</h6>
+                  </div>
+                  <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image">
+                  <!-- <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div> -->
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Date: </li>
+                    <li class="list-group-item">Venue: </li>
+                    <!-- <li class="list-group-item">Vestibulum at eros</li> -->
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="btn card-link">Edit Event</a>
+                    <a href="#" class="btn card-link">Manage Invites</a>
+                  </div>
+                  <div class="card-footer text-muted">
+                    Posted 2 days ago
+                  </div>
+                </div>
+                
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-3 add-event-card">
+                  <div class="card-body">
+                    <h5 class="card-title">Event Title</h5>
+                    <h6 class="card-subtitle text-muted">Event Subtitle</h6>
+                  </div>
+                  <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image">
+                  <!-- <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div> -->
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Date: </li>
+                    <li class="list-group-item">Venue: </li>
+                    <!-- <li class="list-group-item">Vestibulum at eros</li> -->
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="btn card-link">Edit Event</a>
+                    <a href="#" class="btn card-link">View Invites</a>
+                  </div>
+                  <div class="card-footer text-muted">
+                    Posted 2 days ago
+                  </div>
+                  
+                </div>
+                
+              </div>
+              
+            </div>
+            <nav aria-label="...">
+              <ul class="pagination">
+                <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">2 <span class="sr-only">(current)</span></a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+    
+    
+  </div>
+  
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Add New Event</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <div class="form-body">
+            
+            <div class="form-group" style="display: flex;">
+              <div class="custom-control custom-radio">
+                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked="">
+                <label class="custom-control-label" for="customRadio1">Registered Event Type</label>
+              </div>
+              <div class="custom-control custom-radio ml-5">
+                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                <label class="custom-control-label" for="customRadio2">New Event Type</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <!-- <label for="exampleFormControlSelect1">Event Type</label> -->
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option disabled selected>Select Event Type</option>
+                <option>Technical Excursion Series</option>
+                <option>Conference</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <!-- <label for="exampleFormControlInput1">Event Title</label> -->
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Event Title e.g. Modern Digital Satellite Broadcasting - An Overview">
+            </div>
+            <div class="form-group">
+              <!-- <label for="exampleFormControlInput1">Event Title</label> -->
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Venue e.g. The Airport Holida Inn Hotels, Accra, Ghana">
+            </div>
+          </div>
+          <ul class="nav nav-tabs nav-fill">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#home">Single Day</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#profile">Multiple Days</a>
+            </li>
+            
+            
+          </ul>
+          <div id="myTabContent" class="tab-content mt-3">
+            <div class="tab-pane fade active show" id="home">
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Date</label>
+                <input type="datetime-local" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+              </div>
+            </div>
+            <div class="tab-pane fade" id="profile">
+              <div class="form-row">
+                
+                <div class="col form-group">
+                  <label for="startdate">Start Date</label>
+                  <input id="startdate" type="datetime-local" class="form-control">
+                
+                </div>
+                <div class="col form-group">
+                  <label for="enddate">End Date</label>
+                  <input id="enddate" type="datetime-local" class="form-control">
+             
+                </div>
+                 </div>
+            </div>
+            <div class="form-group">
+              <!-- <label for="featuring">Features / Description</label> -->
+              <textarea class="form-control" id="featuring" rows="3" placeholder="Features e.g. Featuring talks by industry veterans and Government Representatives"></textarea>
+            </div>
+            <div class="form-group">
+              <!-- <label for="exampleFormControlInput1">Event Title</label> -->
+              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Image URL e.g. https://i.imgur/imagelink">
+            </div>
+            
+          </div>
+        </form>
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Save Event</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
