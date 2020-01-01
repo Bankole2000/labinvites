@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/toast.css">
+  <link rel="stylesheet" href="assets/css/common.css">
   <link rel="stylesheet" href="assets/css/login.css">
   <title>LiviaSoft Labs | Login</title>
 </head>
@@ -29,8 +32,8 @@
             <div class="login-only">
             <p>Sign in to Manage LiviaSoft Labs Upcoming Events and Guestlists</p>
             <form action="" id="login">
-              <div class="form-group"><input type="text" class="form-control" placeholder="admin@emailhost.com" required></div>
-              <div class="form-group"><input type="password" class="form-control" placeholder="password"></div>
+              <div class="form-group"><input type="email" class="form-control" id="login-email" placeholder="admin@emailhost.com" required></div>
+              <div class="form-group"><input type="password" class="form-control" id="login-password" placeholder="password"></div>
               <div class="row">
                 <div class="col text-left">
                   <div class="form-group">
@@ -44,7 +47,7 @@
                 
               </div>
               <div class="sign-btn text-center">
-                <button class="btn btn-theme">Sign In</button>
+                <button class="btn btn-theme" id="sign-in">Sign In</button>
               </div>
             </form>
             </div>
@@ -53,21 +56,21 @@
               <p>Enter your email below to recieve a link to reset your password</p>
               
               <form action="" id="forgot-password-only">
-                <div class="form-group"><input type="text" class="form-control" placeholder="admin@emailhost.com" required></div>
+                <div class="form-group"><input type="email" class="form-control" placeholder="admin@emailhost.com" id="forgot-password-email" required></div>
                 <div class="row">
                   
-                  <div class="col text-right mb-4"><a href="" class="forgot-password">Return to Login</a></div>
+                  <div class="col text-right mb-4"><a href="" id="login-return">Return to Login</a></div>
                   
                 </div>
                 <div class="sign-btn text-center">
-                  <button class="btn btn-theme">Reset Password</button>
+                  <button class="btn btn-theme" id="reset-password">Reset Password</button>
                 </div>
               </form>
               </div>
             </div>
             <div class="register">
               <p>
-                &copy; <a href="https://bankole2000.github.io/portfolio" target="_blank">Bankole Esan</a>, 2020 for  <a href="https://liviasoft.com">LiviaSoft Labs</a>
+                &copy; 2020, <a href="https://bankole2000.github.io/portfolio" target="_blank">Bankole Esan</a> for  <a href="https://liviasoft.com">LiviaSoft Labs</a>
               </p>
             </div>
           </div>
@@ -77,6 +80,7 @@
   </div>
   <script src="assets/js/jquery.js"></script>
   <script src="assets/js/toast.js"></script>
+  <script src="assets/js/common.js"></script>
   <script src="assets/js/login.js"></script>
 </body>
 </html>
