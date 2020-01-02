@@ -18,7 +18,8 @@ session_start();
           $data["pass"] = $row["pass"];
           $data["role"] = $row["role"];
           $data["id"] = $row["user_id"];
-          $data["message"] = "success";          
+          $data["message"] = "success";   
+          $data["gravatar"] =  md5( strtolower( trim( $row["email"] ) ) );       
         }
         echo(json_encode($data));
       } elseif ($result->num_rows === 0) {

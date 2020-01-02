@@ -35,7 +35,7 @@ const loginUser = (email, pass) => {
           localStorage.setItem("labpass", data.pass);
           localStorage.setItem("labid", data.id);
           }
-        M.toast({html: `${successIcon} &nbsp; Login Successful &nbsp;  - &nbsp; Redirecting ${loadingIcon}`, classes: "successtoast", completeCallback: () => { window.location.replace("./events.html"); }, displayLength: 2000 });
+        M.toast({html: `${successIcon} &nbsp; Login Successful &nbsp;  - &nbsp; Redirecting &nbsp; ${loadingIcon}`, classes: "successtoast", completeCallback: () => { window.location.replace("./events.html"); }, displayLength: 2000 });
         }else if(data.message === "failed"){
         M.toast({html: `${failIcon} &nbsp; Wrong Email / Password`, completeCallback: () => { enableButton(signinBtn, true); }, displayLength: 2000});
           // enableButton(signinbtn, true);

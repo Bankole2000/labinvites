@@ -1,7 +1,9 @@
 const emailRegex = /^[a-z]+(_|\.)?[a-z0-9]*@[a-z]+\.[a-z]{2,}$/i;
 const passRegex = /^[0-9a-zA-Z$&!@#%^*(){}"'\[\];:<>/\\?+=_.-\|]{8,}$/i ; 
-// const dateRegex
-// const datetimeRegex
+const urlRegex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i;
+const textRegex = /^[A-Za-z\d\s,.]{3,}$/;
+const textAreaRegex = /^[A-Za-z\d\s,.!@#$%^&*(){}"'\[\]\\\/+=?_-\|;:]{3,}$/;
+const datetimeRegex = /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d/;
 const nameRegex = /^[a-z]{3,}$/i;
 const failIcon = '<i class="mdi mdi-close-circle" style="color: red;"></i>';
 const successIcon = '<i class="mdi mdi-check-circle" style="color: green;"></i>';
@@ -9,7 +11,7 @@ const loadingIcon =  '<i class="fa fa-spinner fa-pulse"></i>';
 const timeout = 5000;
 
 
-const allInputs = document.querySelectorAll('input[type=text], input[type=email], input[type=password], input[type=date], input[type=datetime-local]');
+const allInputs = document.querySelectorAll('input[type=text], input[type=email], input[type=password], input[type=date], input[type=datetime-local], input[type=url], textarea[type=textarea]');
 
 
 const markAsValid = (field) => {
@@ -67,8 +69,10 @@ const checkInputIsValidType = (value, type) => {
   let isValid;
   type == 'email' ? isValid = emailRegex.test(value) : false;
   type == 'password' ? isValid = passRegex.test(value) : false;
-  // type == 'date' ? isValid = dateRegex.test(value) : false;
-  // type == 'datetime-local' ? isValid = datetimeRegex.test(value) : false;
+  type == 'text' ? isValid = textRegex.test(value) : false;
+  type == 'textarea' ? isValid = textAreaRegex.test(value) : false;
+  type == 'url' ? isValid = urlRegex.test(value) : false;
+  type == 'datetime-local' ? isValid = datetimeRegex.test(value) : false;
   return isValid;
 }
 
