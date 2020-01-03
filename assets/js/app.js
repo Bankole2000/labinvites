@@ -19,6 +19,7 @@ const endDateInput = document.querySelector('#enddate')
 const featuringInput = document.querySelector('#featuring')
 const imageUrlInput = document.querySelector('#imageUrl')
 const addNewEventBtn = document.querySelector('#add-new-event-submit-btn')
+const updateEventModalBtn = document.querySelectorAll('.updateEvent')
 
 const showAddNewType = () => {
   eventTypeAddForm.style.display = 'block';
@@ -38,6 +39,13 @@ $(window).click((e) => {
     id == 'old-event-type' ? showSelectType() : false ;
     id == 'new-event-type' ? showAddNewType() : false ;
   }
+  if (e.target.classList.contains('updateEvent')) {
+    e.preventDefault();
+    let eventId = e.target.id;
+    console.log(e.target, eventId);
+    getEventDetails(eventId);
+
+  }
 })
 
 
@@ -53,6 +61,47 @@ $(document).ready(function () {
 });
 
 // Functions
+const updateModal = (data) => {
+  document.querySelector('.modal-title').innerHTML = 'Update Event';
+  eventTypeSelectInput.selectedIndex = data.event_type_id;
+  oldEventTypeRadioInput.checked = true;
+  eventTitleInput.value = data.title;
+  eventVenueInput.value = data.venue;
+  featuringInput.value = data.features;
+  imageUrlInput.value = data.image_url;
+}
+
+const getEventDetails = (eventId) => {
+  let action = "getSingleEvent";
+  $.ajax({
+    url: "scripts/events.php",
+    method: "POST",
+    data: {
+    action,
+    eventId
+      }, 
+    dataType: "JSON",
+    success: function(data){
+        console.log(data);
+        if(data.message === "success"){
+          console.log(data);
+          updateModal(data);
+        }
+        // // M.toast({html: `${successIcon} &nbsp; Login Successful &nbsp;  - &nbsp; Redirecting ${loadingIcon}`, classes: "successtoast", completeCallback: () => { window.location.replace("./events.html"); }, displayLength: 2000 });
+        else if(data.message === "failed"){
+        //   M.toast({html: `Not Logged In`, classes: "error", completeCallback: () => { window.location.replace("index.html"); }, displayLength: 1000})
+        }
+    },
+    
+    error: function(){
+      M.toast({html: `Connection Error &nbsp; ${connectionErrorIcon}`});
+      // enableButton('signinBtn', true);
+      // $('#login-btn').html('Sign in <i class="fas fa-sign-in-alt"></i>').css({'color': 'white'});
+    },
+    timeout: timeout
+  })
+}
+
 const updateUI = (userData) => {
   console.log(userData);
   console.log(userData.gravatar);
@@ -244,8 +293,8 @@ const getEvents = (page = 1) => {
                     
                   </ul>
                   <div class="card-body">
-                    <a href="#" class="btn btn-primary card-link">Update</a>
-                    <a href="#" class="btn btn-success card-link">View Invites</a>
+                    <a href="#" id="${card.event_id}" class="btn btn-primary card-link updateEvent" data-toggle="modal" data-target="#exampleModal">Update</a>
+                    <a href="#" id="${card.event_id}" class="btn btn-success card-link">View Invites</a>
                   </div>
                   <div class="card-footer text-muted">
                     Posted 2 days ago
@@ -309,6 +358,14 @@ addNewEventTypeBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const typeName = addNewEventTypeInput.value;
   addEventType(typeName);
+})
+
+updateEventModalBtn.forEach(button => {
+  button.addEventListener('click', e => {
+    e.preventDefault();
+    let eventId = button.id;
+    console.log(eventId);
+  })
 })
 
 addNewEventBtn.addEventListener('click', (e) => {

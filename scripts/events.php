@@ -42,6 +42,35 @@ session_start();
       }
     }
 
+    if($_POST["action"] == "getSingleEvent")
+    {
+      $sql = "SELECT * FROM events JOIN event_type ON events.event_type_id = event_type.event_type_id  WHERE events.event_id = '{$_POST['eventId']}'  LIMIT 1";
+      $result = $db->query($sql);
+      if($result->num_rows === 1) {
+        while($row = $result->fetch_array()) {
+          extract($row);
+          $singleEvent = array(
+            'event_id' => $event_id,
+            'event_type_id' => $event_type_id,
+            'type_name' => $type_name,
+            'title' => $title, 
+            'venue' => $venue, 
+            'from_date' => $from_date, 
+            'to_date' => $to_date,
+            'features' => $features,
+            'image_url' => $image_url,
+            'date_posted' => $date_posted,
+            'message' => 'success', 
+          );
+          
+        }
+        echo json_encode($singleEvent);
+      }else {
+        $singleEvent['message'] = 'failed';
+        echo json_encode($singleEvent);
+      }
+    }
+
     if($_POST["action"] == "getEventType") 
     {
       $sql = "SELECT * FROM event_type ORDER BY event_type_id";
