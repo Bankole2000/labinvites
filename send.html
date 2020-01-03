@@ -49,6 +49,10 @@
                 <i class="fas fa-align-left"></i>
                 <span>Toggle Sidebar</span>
             </button>
+            <div class="form-inline my-2 my-lg-0">
+              <h4> Welcome <span class="username">{{ User }}</span> &nbsp;</h4>
+              <img src="assets/img/logo.png" width="45px" class="rounded circle usergravatar" alt="">
+            </div>
 
         </div>
       </nav>
@@ -75,8 +79,7 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <!-- <!-- <label for="sender">Sender (from email address)</label> -->
-                    <input type="text" class="form-control" id="sender" placeholder="Sender (from email address)">
+                    <input type="email" class="form-control" id="sender" placeholder="Sender (from email address)">
                   </div>
                   <ul class="nav nav-tabs nav-fill">
                     <li class="nav-item">
@@ -93,30 +96,30 @@
                       <p>Send A Single Invite with a CC and/or BCC </p>
                       <div class="form-group">
                         <!-- <!-- <label for="sender">Sender (from email address)</label> -->
-                        <input type="text" class="form-control" id="single-to-email-input" placeholder="Single Recipient ('to' email address)">
+                        <input type="email" class="form-control" id="single-to-email-input" placeholder="Single Recipient ('to' email address)">
                       </div>
                       <div class="form-group">
                         <!-- <!-- <label for="sender">Sender (from email address)</label> -->
-                        <input type="text" class="form-control" id="single-cc-email-input" placeholder="Carbon Copy ('CC' email address)">
+                        <input type="email" class="form-control" id="single-cc-email-input" placeholder="Carbon Copy ('CC' email address)">
                       </div>
                       <div class="form-group">
                         <!-- <!-- <label for="sender">Sender (from email address)</label> -->
-                        <input type="text" class="form-control" id="single-bcc-email-input" placeholder="Blind Carbon Copy ('BCC' email address)">
+                        <input type="email" class="form-control" id="single-bcc-email-input" placeholder="Blind Carbon Copy ('BCC' email address)">
                       </div>
                     </div>
                     <div class="tab-pane fade" id="multiple-invite">
                       <p>Send Multiple Invites with a CC and/or BCC </p>
                       <div class="form-group">
                         <!-- <!-- <label for="sender">Sender (from email address)</label> -->
-                        <input type="text" class="form-control" id="multiple-to-email-input" placeholder="Multiple Recipients ('to' email address)">
+                        <input type="email" class="form-control" id="multiple-to-email-input" placeholder="Multiple Recipients ('to' email address)">
                       </div>
                       <div class="form-group">
                         <!-- <!-- <label for="sender">Sender (from email address)</label> -->
-                        <input type="text" class="form-control" id="multiple-cc-email-input" placeholder="Carbon Copy ('CC' email address)">
+                        <input type="email" class="form-control" id="multiple-cc-email-input" placeholder="Carbon Copy ('CC' email address)">
                       </div>
                       <div class="form-group">
                         <!-- <!-- <label for="sender">Sender (from email address)</label> -->
-                        <input type="text" class="form-control" id="multiple-bcc-email-input" placeholder="Blind Carbon Copy ('BCC' email address)">
+                        <input type="email" class="form-control" id="multiple-bcc-email-input" placeholder="Blind Carbon Copy ('BCC' email address)">
                       </div>
                     </div>
                     </div>
@@ -135,21 +138,21 @@
             <div class="card mb-3">
               <h3 class="card-header">Event Preview</h3>
               <div class="card-body">
-                <h5 class="card-title">Event Title</h5>
-                <h6 class="card-subtitle text-muted">Event Subtitle</h6>
+                <h5 class="card-title" id="event-title">${card.title}</h5>
+                <h6 class="card-subtitle text-muted" id="event-type-name">${card.type_name}</h6>
               </div>
-              <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image">
-              <!-- <div class="card-body">
+              <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image" id="event-image">
+                  <!-- <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div> -->
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Date: </li>
-                <li class="list-group-item">Venue: </li>
-                <!-- <li class="list-group-item">Vestibulum at eros</li> -->
+                <li class="list-group-item" id="event-date">Date: ${new Date(card.from_date).toDateString() } </li>
+                <li class="list-group-item" id="event-venue">Venue: ${card.venue} </li>
+                
               </ul>
               <div class="card-body">
-                <a href="#" class="btn card-link">Edit Event</a>
-                <a href="#" class="btn card-link">Manage Invites</a>
+                <a href="#" id="${card.event_id}" class="btn btn-primary card-link updateEvent" data-toggle="modal" data-target="#exampleModal">Update</a>
+                <a href="#" id="${card.event_id}" class="btn btn-success card-link">View Invites</a>
               </div>
               <div class="card-footer text-muted">
                 Posted 2 days ago

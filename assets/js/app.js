@@ -1,6 +1,3 @@
-const logoutBtn = document.querySelector('#logout')
-const userImageEl = document.querySelectorAll('.usergravatar')
-const userNameSpan = document.querySelectorAll('.username')
 const oldEventTypeRadioInput = document.querySelector('#old-event-type')
 const newEventTypeRadioInput = document.querySelector('#new-event-type')
 const eventTypeAddForm = document.querySelector('#event-type-add-form')
@@ -102,18 +99,18 @@ const getEventDetails = (eventId) => {
   })
 }
 
-const updateUI = (userData) => {
-  console.log(userData);
-  console.log(userData.gravatar);
-  userNameSpan.forEach(el => {
-    el.innerHTML = userData.firstname;
-  });
-  userImageEl.forEach(el => {
-    el.setAttribute('src', `https://www.gravatar.com/avatar/${userData.gravatar}`);
-  });
-  getEvents();
-  getEventTypes();
-}
+// const updateUI = (userData) => {
+//   console.log(userData);
+//   console.log(userData.gravatar);
+//   userNameSpan.forEach(el => {
+//     el.innerHTML = userData.firstname;
+//   });
+//   userImageEl.forEach(el => {
+//     el.setAttribute('src', `https://www.gravatar.com/avatar/${userData.gravatar}`);
+//   });
+//  }
+
+
 
 const getEventTypes = () => {
   let action = "getEventType";
@@ -182,43 +179,43 @@ const addEventType = (typeName) => {
   })
 }
 
-const getDetails = (email, pass) => {
-  let action = "newLogin";
+// const getDetails = (email, pass) => {
+//   let action = "newLogin";
 
-  $.ajax({
-    url: "scripts/login.php",
-    method: "POST",
-    data: {
-    action: action,
-    email: email,
-    pass: pass
-      }, 
-    dataType: "JSON",
-    success: function(data){
-        console.log(data);
-        if(data.message === "success"){
-          updateUI(data);
-        }
-        // M.toast({html: `${successIcon} &nbsp; Login Successful &nbsp;  - &nbsp; Redirecting ${loadingIcon}`, classes: "successtoast", completeCallback: () => { window.location.replace("./events.html"); }, displayLength: 2000 });
-        else if(data.message === "failed"){
-          M.toast({html: `Not Logged In`, classes: "error", completeCallback: () => { window.location.replace("index.html"); }, displayLength: 1000})
-        }
-    },
+//   $.ajax({
+//     url: "scripts/login.php",
+//     method: "POST",
+//     data: {
+//     action: action,
+//     email: email,
+//     pass: pass
+//       }, 
+//     dataType: "JSON",
+//     success: function(data){
+//         console.log(data);
+//         if(data.message === "success"){
+//           updateUI(data);
+//         }
+//         // M.toast({html: `${successIcon} &nbsp; Login Successful &nbsp;  - &nbsp; Redirecting ${loadingIcon}`, classes: "successtoast", completeCallback: () => { window.location.replace("./events.html"); }, displayLength: 2000 });
+//         else if(data.message === "failed"){
+//           M.toast({html: `Not Logged In`, classes: "error", completeCallback: () => { window.location.replace("index.html"); }, displayLength: 1000})
+//         }
+//     },
     
-    error: function(){
-      M.toast({html: `Connection Error &nbsp; ${connectionErrorIcon}`});
-      // enableButton('signinBtn', true);
-      // $('#login-btn').html('Sign in <i class="fas fa-sign-in-alt"></i>').css({'color': 'white'});
-    },
-    timeout: timeout
-  })
-}
+//     error: function(){
+//       M.toast({html: `Connection Error &nbsp; ${connectionErrorIcon}`});
+//       // enableButton('signinBtn', true);
+//       // $('#login-btn').html('Sign in <i class="fas fa-sign-in-alt"></i>').css({'color': 'white'});
+//     },
+//     timeout: timeout
+//   })
+// }
 
-const checkIfLoggedIn = () => {
-  const email = localStorage.getItem('labemail');
-  const pass = localStorage.getItem('labpass');
-  email && pass ? getDetails(email, pass) : M.toast({html: `Not Logged In`, classes: "error", completeCallback: () => { window.location.replace("index.html"); }, displayLength: 1000});
-}
+// const checkIfLoggedIn = () => {
+//   const email = localStorage.getItem('labemail');
+//   const pass = localStorage.getItem('labpass');
+//   email && pass ? getDetails(email, pass) : M.toast({html: `Not Logged In`, classes: "error", completeCallback: () => { window.location.replace("index.html"); }, displayLength: 1000});
+// }
 
 const addEvent = ({typeId, title, venue, isSingleDay, startDate, endDate, features, imageURL}) => {
   let action = "addEvent";
@@ -332,13 +329,6 @@ const deleteEvent = (id) => {
 
 }
 
-const logout = () => {
-  localStorage.removeItem('labemail');
-  localStorage.removeItem('labpass');
-  localStorage.removeItem('labid');
-  M.toast({html: `Loggin out &nbsp; ${loadingIcon}`, completeCallback: () => { window.location.replace("index.html"); }, displayLength: 1000})
-}
-
 // singleDateInput = document.querySelector('#single-date');
 singleDateInput.addEventListener('keyup', () => {
   console.log(singleDateInput.value, ' Keyup Event');
@@ -350,10 +340,9 @@ singleDateInput.addEventListener('change', () => {
   console.log(singleDateInput.value, ' Change Event');
 }); 
 
-checkIfLoggedIn();  
+// checkIfLoggedIn();  
 
 // Events 
-logoutBtn.addEventListener('click', logout);
 addNewEventTypeBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const typeName = addNewEventTypeInput.value;
@@ -388,3 +377,6 @@ addNewEventBtn.addEventListener('click', (e) => {
     M.toast({html: `${failIcon} Incomplete Event Details`, displayLength: 1000})
   }
 })
+
+window.location.pathname.includes('events.html')  ? getEvents() : false;
+window.location.pathname.includes('events.html') ? getEventTypes() : false;

@@ -8,11 +8,76 @@ const nameRegex = /^[a-z]{3,}$/i;
 const failIcon = '<i class="mdi mdi-close-circle" style="color: red;"></i>';
 const successIcon = '<i class="mdi mdi-check-circle" style="color: green;"></i>';
 const loadingIcon =  '<i class="fa fa-spinner fa-pulse"></i>';
-const timeout = 5000;
+const logoutBtn = document.body.contains(document.querySelector('#logout')) ? document.querySelector('#logout') : false;
+const userImageEl = document.querySelectorAll('.usergravatar')
+const userNameSpan = document.querySelectorAll('.username')
 
+const timeout = 5000;
 
 const allInputs = document.querySelectorAll('input[type=text], input[type=email], input[type=password], input[type=date], input[type=datetime-local], input[type=url], textarea[type=textarea]');
 
+
+const homepath = ['/','/index.html','/index','/projects/labinvites/','/projects/labinvites/index.html']
+
+const updateUI = (userData) => {
+  console.log(userData);
+  console.log(userData.gravatar);
+  userNameSpan.forEach(el => {
+    el.innerHTML = userData.firstname;
+  });
+  userImageEl.forEach(el => {
+    el.setAttribute('src', `https://www.gravatar.com/avatar/${userData.gravatar}`);
+  });
+  // window.location.pathname == 'events.html' ? getEvents() : false;
+  // window.location.pathname == 'events.html' ? getEventTypes() : false;
+}
+
+const getDetails = (email, pass) => {
+  let action = "newLogin";
+
+  $.ajax({
+    url: "scripts/login.php",
+    method: "POST",
+    data: {
+    action: action,
+    email: email,
+    pass: pass
+      }, 
+    dataType: "JSON",
+    success: function(data){
+        console.log(data);
+        if(data.message === "success"){
+          updateUI(data);
+        }
+        // M.toast({html: `${successIcon} &nbsp; Login Successful &nbsp;  - &nbsp; Redirecting ${loadingIcon}`, classes: "successtoast", completeCallback: () => { window.location.replace("./events.html"); }, displayLength: 2000 });
+        else if(data.message === "failed"){
+          M.toast({html: `Not Logged In`, classes: "error", completeCallback: () => { window.location.replace("index.html"); }, displayLength: 1000})
+        }
+    },
+    
+    error: function(){
+      M.toast({html: `Connection Error &nbsp; ${connectionErrorIcon}`});
+      // enableButton('signinBtn', true);
+      // $('#login-btn').html('Sign in <i class="fas fa-sign-in-alt"></i>').css({'color': 'white'});
+    },
+    timeout: timeout
+  })
+}
+
+const checkIfLoggedIn = () => {
+  const email = localStorage.getItem('labemail');
+  const pass = localStorage.getItem('labpass');
+  email && pass ? getDetails(email, pass) : M.toast({html: `Not Logged In`, classes: "error", completeCallback: () => { window.location.replace("index.html"); }, displayLength: 1000});
+}
+
+// window.location.pathname == '/' || window.location.pathname == '/index' ? console.log("Home") : console.log("Inside");
+
+if( logoutBtn ) {  
+  logoutBtn.addEventListener('click', e => {
+    e.preventDefault();
+    logout();
+  });
+}
 
 const markAsValid = (field) => {
   field.classList.add("has-success");
@@ -29,6 +94,8 @@ const markAsInvalid = (field) => {
   //   'color': 'red'
   // })
 }
+
+
 
 const unmark = (field) => {
   field.classList.remove("has-danger");
@@ -85,3 +152,12 @@ allInputs.forEach(input => {
     flagIfInvalid(e.target, isValid)
   })
 })
+
+const logout = () => {
+  localStorage.removeItem('labemail');
+  localStorage.removeItem('labpass');
+  localStorage.removeItem('labid');
+  M.toast({html: `Loggin out &nbsp; ${loadingIcon}`, completeCallback: () => { window.location.replace("index.html"); }, displayLength: 1000})
+}; 
+
+homepath.indexOf(window.location.pathname) >= 0 ? console.log('home') : checkIfLoggedIn();

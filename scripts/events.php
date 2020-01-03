@@ -116,6 +116,33 @@ session_start();
       echo json_encode($data);
     }
 
+    if($_POST["action"] == "getEventList")
+    {
+      $sql = "SELECT event_id, title FROM events ORDER BY date_posted ASC";
+      $result = $db->query($sql);
+      if($result->num_rows > 0 )
+      {
+        $events_arr = array();
+        $events_arr['data'] = array();
+        
+        while($row = $result->fetch_array()) {
+          extract($row);
+          $event_item = array(
+            'event_id' => $event_id,
+            'title' => $title, 
+            );
+          array_push($events_arr['data'], $event_item);
+        }
+        $events_arr['message'] = 'success';
+        echo json_encode($events_arr);
+      } else {
+        // No Events
+        $events_arr['message'] = 'failed';
+        echo json_encode($events_arr);
+        
+      }
+    }
+
 
   }
 
