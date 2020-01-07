@@ -5,3 +5,13 @@
 .btn {
   color: #FFF !important;
 }
+
+.btn-theme {
+  background: linear-gradient(150deg, #f05138 15%, #ee3a5b 70%, #ed1375 94%);
+  color: #fff;
+  transition: all 2s ease-in-out;
+}
+
+.btn-theme:hover {
+  background: linear-gradient(150deg, #cc442f 15%, #d83452 70%, #da116b 94%);
+}

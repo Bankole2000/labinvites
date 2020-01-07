@@ -10,7 +10,7 @@ session_start();
       $page = $_POST["page"];
       $limit = 6;
       $start_from = ($page-1) * $limit;
-      $sql = "SELECT * FROM events JOIN event_type ON events.event_type_id = event_type.event_type_id  ORDER BY events.date_posted LIMIT $start_from , $limit";
+      $sql = "SELECT * FROM events JOIN event_type ON events.event_type_id = event_type.event_type_id  ORDER BY events.date_posted DESC LIMIT $start_from , $limit";
       $result = $db->query($sql);
       if($result->num_rows > 0){
         $events_arr = array();
@@ -118,7 +118,7 @@ session_start();
 
     if($_POST["action"] == "getEventList")
     {
-      $sql = "SELECT event_id, title FROM events ORDER BY date_posted ASC";
+      $sql = "SELECT event_id, title FROM events ORDER BY date_posted DESC";
       $result = $db->query($sql);
       if($result->num_rows > 0 )
       {

@@ -92,6 +92,33 @@ const getEventInvites = (eventId) => {
 
 const sendSingleInvite = (invite) => {
   let action = "sendSingleInvite";
+  $.ajax({
+    url: "scripts/invite2.php",
+    method: "POST",
+    data: {
+    action: action,
+    // eventId: invite.eventId,
+    sender: invite.sender,
+    notes: invite.notes, 
+    // singlecc: invite.singlecc,
+    // singlebcc: invite.singlebcc,
+    singleTo: invite.singleTo    
+      }, 
+    dataType: "JSON",
+    success: function(data){
+        console.log(data);
+        if(data.message === "success"){
+          // updateUI(data);
+        } else if(data.message === "failed") {
+          M.toast({html: `Not Logged In`, classes: "error", completeCallback: () => { window.location.replace("index.html"); }, displayLength: 1000})
+        }
+    },
+    
+    error: function(){
+      // M.toast({html: `Connection Error &nbsp; ${connectionErrorIcon}`});
+    },
+    timeout: timeout
+  })
 }
 
 const sendMultipleInvites = (invite) => {
@@ -107,4 +134,25 @@ selectEventInput.addEventListener('change', e => {
   console.log(selectEventInput.value);
   let eventId = selectEventInput.value;
   getEventDetails(eventId);
+})
+
+sendInviteBtn.addEventListener('click', e => {
+  e.preventDefault();
+  const invite = {};
+  invite.eventId = selectEventInput.value;
+  invite.sender = flagIfInvalid(senderEmailInput, checkInputIsValidType(senderEmailInput.value, 'email'));
+  invite.isSingleInvite = singleInviteTabLnk.classList.contains('active') ? true : false;
+  invite.notes = flagIfInvalid(inviteNotesInput, checkInputIsValidType(inviteNotesInput.value, 'textarea'));
+  if (invite.isSingleInvite){
+    invite.singleTo = flagIfInvalid(singleToEmailInput, checkInputIsValidType(singleToEmailInput.value, 'email'));
+    invite.singlecc = flagIfInvalid(singleCCEmailInput, checkInputIsValidType(singleCCEmailInput.value, 'email'));
+    invite.singleBCCEmailInput = flagIfInvalid(singleBCCEmailInput, checkInputIsValidType(singleBCCEmailInput.value, 'email'));
+    invite.sender != 'undefined' && invite.singleTo != 'undefined' ? sendSingleInvite(invite) : M.toast({html: `${failIcon} &nbsp; Incomplete Invite Details`, classes: "error", displayLength: 1000});
+    console.log(invite);
+  };
+})
+
+clearFormBtn.addEventListener('click', e => {
+  e.preventDefault();
+  document.querySelector('#send-invite-form')
 })

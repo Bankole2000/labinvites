@@ -1,4 +1,5 @@
 <?php 
+
 session_start();
 use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\Exception; 
@@ -28,12 +29,12 @@ require '../vendor/autoload.php';
     $mail->setFrom($sender);
 		// $mail->addAddress($usermail, $username);
     $mail->addAddress($toEmail); // Admin Mail CC
-    // $mail->addReplyTo('info@example.com', 'Information');
+    // $mail->addReplyTo('techybanky@gmail.com', 'Bankole');
     // $mail->addCC('cc@example.com');
-    $mail->addBCC('kolesan2k@yahoo.com');
-    $mail->addBCC('kolesan2k@hotmail.com');
+    // $mail->addBCC('kolesan2k@yahoo.com');
+    // $mail->addBCC('kolesan2k@hotmail.com');
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'LiviaSoft Demo Invite';
+    $mail->Subject = 'Job Application';
     $mail->Body    = "<html lang='en' xmlns='http://www.w3.org/1999/xhtml' xmlns:v='urn:schemas-microsoft-com:vml' xmlns:o='urn:schemas-microsoft-com:office:office'>
     <head>
         <meta charset='utf-8'> <!-- utf-8 works for most cases -->
@@ -52,6 +53,7 @@ require '../vendor/autoload.php';
                 padding: 0 !important;
                 height: 100% !important;
                 width: 100% !important;
+                font-family: sans-serif;
             }
             * {
                 -ms-text-size-adjust: 100%;
@@ -68,6 +70,9 @@ require '../vendor/autoload.php';
             td {
                 mso-table-lspace: 0pt !important;
                 mso-table-rspace: 0pt !important;
+            }
+            .text-services {
+              text-align: center !important;
             }
     
             
@@ -118,15 +123,27 @@ require '../vendor/autoload.php';
                 .email-container {
                     min-width: 320px !important;
                 }
+                .services{
+                  display: block !important;
+                  width: 100% !important;
+                }
             }
             @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
                 .email-container {
                     min-width: 375px !important;
                 }
+                .services{
+                  display: block !important;
+                  width: 100% !important;
+                }
             }
-            @media only screen and (min-device-width: 414px) {
+            @media only screen and (min-device-width: 414px) and (max-device-width: 599px) {
                 .email-container {
                     min-width: 414px !important;
+                }
+                .services{
+                  display: block !important;
+                  width: 100% !important;
                 }
             }
     
@@ -140,8 +157,36 @@ require '../vendor/autoload.php';
             }
           .button-td-primary:hover,
           .button-a-primary:hover {
-              background: #555555 !important;
-              border-color: #555555 !important;
+              background: #171717 !important;
+              border-color: #171717 !important;
+          }
+          .button-white-outline {
+            background: transparent !important;
+            border-radius: 5px;
+            font-family: sans-serif; 
+            font-size: 15px; 
+            line-height: 15px; 
+            text-decoration: none; 
+            padding: 13px 13px; 
+            color: #ffffff; 
+            border: 2px solid white;
+
+          }
+
+          .button-a-primary {
+            background: #0d0cb5; 
+            text-align: center; 
+            font-family: sans-serif; 
+            font-size: 15px; 
+            line-height: 15px; 
+            text-decoration: none; 
+            padding: 13px 13px; 
+            color: #ffffff; 
+            display: block; 
+            width: 60%; 
+            margin:auto; 
+            border-radius: 4px; 
+            border: 0px;
           }
     
              @media screen and (max-width: 600px) {
@@ -149,6 +194,10 @@ require '../vendor/autoload.php';
                 .email-container {
                     width: 100% !important;
                     margin: auto !important;
+                }
+                .services {
+                  padding: 15px 0px;
+                  line-height: 1.5em;
                 }
     
                 .fluid {
@@ -199,21 +248,21 @@ require '../vendor/autoload.php';
             
             <table align='center' role='presentation' cellspacing='0' cellpadding='0' border='0' width='600' style='margin: 0 auto;' class='email-container'>
               <!-- Email Header : BEGIN -->
-                <tr style='background: white;'>
-                    <td style='padding: 10px 0; text-align: center'>
-                        <img src='https://i.imgur.com/RgkIkFz.png' width='200' height='50' alt='alt_text' border='0' style='height: auto; font-family: sans-serif; font-size: 15px; line-height: 15px;'>
-                    </td>
+                <tr style='background-color: none; height: 20px;'>
+                  <td>
+
+                  </td>
                 </tr>
                <tr>
-                    <td valign='middle' style='text-align: center; background-image: url(https://i.imgur.com/FW4Bsor.jpg); background-color: #eeeeee; background-position: center center !important; background-size: cover !important;'>
+                    <td valign='middle' style='text-align: center; background-image: url(https://i.imgur.com/nAWnKa6.jpg); background-color: #eeeeee; background-position: top center !important; background-size: cover !important;'>
                        <div>
                           <table role='presentation' border='0' cellpadding='0' cellspacing='0' width='100%'>
                               <tr>
-                                  <td valign='middle' style='text-align: center; padding-left: 15px; padding-top: 60px; padding-bottom: 60px; font-family: sans-serif; font-size: 15px; line-height: 30px; color: #fefefe; background-color:rgba(0,0,0,0.3);'>
-                                      <h1 style='margin: 0; text-shadow: 1px 1px #222;'><strong>LiviaSoft Labs</strong></h1>
-                                      <h2>Technical Excursion <br>Special Invitation</h2>
-                                      <p>Sat Feb 29 2020</p>
-                                      <a class='button-a button-a-primary' href='https://forms.gle/Jdx2YXuHD7nwvqft6' style='background: #1b96c3; border: 1px solid #000000; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 13px; color: #ffffff; display: block; width: 50%; margin:auto; border-radius: 4px;'>Join the Conference</a>
+                                  <td valign='middle' style='text-align: center; padding: 60px 15px; font-family: sans-serif; font-size: 15px; line-height: 30px; color: #fefefe; background-color:rgba(0,0,0,0.6);'>
+                                      <h1 style='margin: 0; text-shadow: 1px 1px #222;'><strong>Job Application</strong></h1>
+                                      <h2 style='font-weight: lighter;'>Hello, my name is <strong>Bankole Esan</strong></h2>
+                                      <p style='font-size: medium;'>And this email is regarding your post on whatsapp about a job vacancy for a programmer role. Please accept this as my application for the same.</p>
+                                      <a class='button-a button-a-primary' href='https://forms.gle/Jdx2YXuHD7nwvqft6' style='background: #0d0cb5; border: 1px solid #000000; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 13px; color: #ffffff; display: block; width: 50%; margin:auto; border-radius: 4px; border: 0px;'>Download My CV</a>
                         
                                   </td>
                               </tr>
@@ -222,7 +271,199 @@ require '../vendor/autoload.php';
                       
                   </td>
               </tr>
+              <td class='email-section' style='width: 100%; padding: 5%; background-color:rgba(0,0,0,0.4); background: #fafafa;'>
+						<table role='presentation' border='0' cellpadding='0' cellspacing='0' width='100%'>
+							<tbody><tr>
+								<td valign='middle' width='40%'>
+									<table role='presentation' cellspacing='0' cellpadding='0' border='0' width='100%'>
+										<tbody><tr>
+											<td>
+												<img src='https://i.imgur.com/apt5O1j.jpg' alt='' style='width: 100%; max-width: 600px; height: auto; margin: auto; display: block;'>
+											</td>
+										</tr>
+									</tbody></table>
+								</td>
+								<td valign='middle' width='60%'>
+									<table role='presentation' cellspacing='0' cellpadding='0' border='0' width='100%'>
+										<tbody><tr>
+											<td class='text-services' style='text-align: left !important; padding-left:25px; font-family: sans-serif;'>
+												<div class='heading-section'>
+													<h2 style='margin-bottom: 0px;'>About me</h2>
+													<p style='margin: 0px; line-height: 22px; margin-block-end: 0em; color: rgba(0,0,0,0.4) ;'>I consider myself an experienced yet humble developer who's always willing to learn.</p>
+													<p><a href='https://bankole2000.github.io/portfolio/about.html' target='_blank' class='button-a button-a-primary' style='margin-block-start: 0em;'>Find out More</a></p>
+												</div>
+											</td>
+										</tr>
+									</tbody></table>
+								</td>
+							</tr>
+            </tbody>
+          </table>
+          </td>
+          <tr>
+          <td class='email-section' style='background-color: white;'>
+            <div class='heading-section' style='text-align: center; padding: 20px 30px; '>
+              <h2>Core Skills</h2>
+              <p style='color: rgba(0,0,0,0.4) ;'>Full Stack Software Development with modern web technologies, programming languages, frameworks and tools</p>
+            </div>
+            </td>
+            
+          
+          </tr>
+         <tr>
+           <td>
+          <table role='presentation' border='0' cellpadding='0' cellspacing='0' width='100%' >
+            <tbody><tr>
+              <td valign='top' width='33.333%' style='padding: 0px;' class='services'>
+                <table role='presentation' cellspacing='0' cellpadding='0' border='0' width='100%'>
+                  <tbody><tr>
+                    <td class='icon'>
+                      <img src='https://i.imgur.com/M0EMHzW.png' alt='' style='width: 40px; max-width: 600px; height: auto; margin: auto; display: block;'>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class='text-services' >
+                      <h3>Documentation</h3>
+                       <p>Requirements, Projects notes, Kanban, markdown, API Collections, HTML Emails, PDF, CSV, etc </p>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+              <td valign='top' width='33.333%' style='padding: 0px; background: rgba(0,0,0,.1);' class='services'>
+                <table role='presentation' cellspacing='0' cellpadding='0' border='0' width='100%'>
+                  <tbody><tr>
+                    <td class='icon'>
+                      <img src='https://i.imgur.com/g27doVC.png' alt='' style='width: 40px; max-width: 600px; height: auto; margin: auto; display: block;'>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class='text-services'>
+                      <h3>Design</h3>
+                       <p>Branding, UI/UX Design, PSD to HTML, Sass, Flexbox, Grid, SVG, CSS Animation, GSAP, anime.js, three.js etc</p>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </td>
+              <td valign='top' width='33.333%' style='padding: 0px;' class='services'>
+                <table role='presentation' cellspacing='0' cellpadding='0' border='0' width='100%'>
+                  <tbody><tr>
+                    <td class='icon'>
+                      <img src='https://i.imgur.com/tfFZhhQ.png' alt='' style='width: 40px; max-width: 600px; height: auto; margin: auto; display: block;'>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class='text-services'>
+                      <h3>Development</h3>
+                      <p>Database Modelling, RESTful, Ajax & Fetch, OOP, JWT, Business Logic Implementation, Payment Processing etc</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              </td>
+            </tr>
+          </tbody></table></td> </tr>
+          <tr>
+            <td class='email-section' style='background-color: white;'>
+              <div class='heading-section' style='text-align: center; padding: 10px 30px;'>
+                <h2>Tech Stack</h2>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+              <table role='presentation' border='0' cellpadding='0' cellspacing='0' width='100%'>
+                <tbody ><tr style='text-align: center; margin-bottom: 20px;'>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/html5.svg'>
+                    <p style='margin-top: 0;'>Html5</p>
+                  </td>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/css3.svg'>
+                    <p style='margin-top: 0;'>CSS3</p>
+                  </td>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/javascript.svg'>
+                    <p style='margin-top: 0;'>JS ES6</p>
+                  </td>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/php.svg'>
+                    <p style='margin-top: 0;'>PHP</p>
+                  </td>											
+                </tr>
+                <tr>
+                  <td height='16'></td>
+                </tr>
+                <tr style='text-align: center;'>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/mysql.svg'>
+                    <p style='margin-top: 0;'>MySQL</p>
+                  </td>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/python.svg'>
+                    <p style='margin-top: 0;'>Python</p>
+                  </td>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/django.svg'>
+                    <p style='margin-top: 0;'>Django</p>
+                  </td>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/jquery.svg'>
+                    <p style='margin-top: 0;'>jQuery</p>
+                  </td>											
+                </tr>
+                <tr style='text-align: center;'>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/git.svg'>
+                    <p style='margin-top: 0;'>Git</p>
+                  </td>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/sass.svg'>
+                    <p style='margin-top: 0;'>Sass</p>
+                  </td>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/npm.svg'>
+                    <p style='margin-top: 0;'>Node JS</p>
+                  </td>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/angular.svg'>
+                    <p style='margin-top: 0;'>Angular</p>
+                  </td>											
+                </tr>
+                <tr style='text-align: center;'>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/postman.svg'>
+                    <p style='margin-top: 0;'>Postman</p>
+                  </td>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/docker.svg'>
+                    <p style='margin-top: 0;'>Docker</p>
+                  </td>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/heroku.svg'>
+                    <p style='margin-top: 0;'>Heroku</p>
+                  </td>
+                  <td>
+                    <img height='32' width='32' src='https://unpkg.com/simple-icons@latest/icons/netlify.svg'>
+                    <p style='margin-top: 0;'>Netlify</p>
+                  </td>											
+                </tr>
+                                                         
+                 
+                  
+                
+              </tbody></table>
+            
+            </td>
+          </tr>
+          <tr>
+            <td class='primary email-section' style='text-align:center; background: #0d0cb5; color: white;'>
+              <div class='heading-section heading-section-white'>
+                <h2>Get Ready For Modern Design</h2>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                <p><a href='#' class='button button-white-outline'>Download My CV</a></p>
+              </div>
+            </td>
+          </tr>
+          
              <tr>
+               
                     <td style='background-color: #ffffff;'>
                         <table role='presentation' cellspacing='0' cellpadding='0' border='0' width='100%'>
                             <tr>

@@ -43,11 +43,6 @@
   margin: 0 auto;
 }
 
-.btn-theme {
-  background: linear-gradient(150deg, #f05138 15%, #ee3a5b 70%, #ed1375 94%);
-  color: #fff;
-}
-
 img {
   width: 60px;
   vertical-align: middle;

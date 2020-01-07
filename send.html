@@ -10,6 +10,7 @@
 
   <!-- <link rel="stylesheet" href="assets/css/jquery.dataTables.min.css"> -->
   <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="assets/css/multiple-emails.css">
   <link rel="stylesheet" href="assets/css/toast.css">
   <link rel="stylesheet" href="assets/css/common.css">
   <link rel="stylesheet" href="assets/css/main.css">
@@ -67,11 +68,11 @@
           </div>
         </div>
         <div class="row mb-3">
-          <div class="col-md-8">
+          <div class="col-md-8 col-sm-12">
             <div class="card mb-3">
               <div class="card-body">
                 <h5 class="card-title">Generate Invite</h5>
-                <form action="">
+                <form action="" id="send-invite-form">
                   <div class="form-group">
                     <!-- <label for="exampleFormControlSelect1">Event Type</label> -->
                     <select class="form-control" id="event-select">
@@ -129,8 +130,9 @@
                     </div>
                     
                 </form>
-                <a href="#" id="send-invite-button" class="btn card-link">Send Invite</a>
-                <a href="#" id="clear-form-button" class="btn card-link">Clear Form</a>
+                <a href="#" id="clear-form-button" class="btn btn-primary card-link">Clear Form</a>
+                <a href="#" id="send-invite-button" class="btn btn-theme card-link">Send Invite</a>
+                
               </div>
             </div>
           </div>
@@ -168,7 +170,7 @@
         </div>
         <div class="row">
           <div class="col-sm-12">
-            <table class="table table-hover" id="myTable">
+            <table class="table table-hover table-responsive" id="myTable">
               <thead>
                 <tr>
                   <th scope="col">id</th>
@@ -260,6 +262,7 @@
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/jquery.dataTables.min.js"></script>
   <script src="assets/js/dataTables.bootstrap4.min.js"></script>
+  <script src="assets/js/multiple-emails.js"></script>
   <script src="assets/js/toast.js"></script>
   <script src="assets/js/common.js"></script>
   <script src="assets/js/invites.js"></script>
