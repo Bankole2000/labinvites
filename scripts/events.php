@@ -24,6 +24,7 @@ session_start();
             'type_name' => $type_name,
             'title' => $title, 
             'venue' => $venue, 
+            'is_single_day' => $is_single_day,
             'from_date' => $from_date, 
             'to_date' => $to_date,
             'features' => $features,
@@ -55,6 +56,7 @@ session_start();
             'type_name' => $type_name,
             'title' => $title, 
             'venue' => $venue, 
+            'is_single_day' => $is_single_day,
             'from_date' => $from_date, 
             'to_date' => $to_date,
             'features' => $features,
@@ -110,7 +112,7 @@ session_start();
       $_POST['endDate'] == "undefined" ? $_POST['endDate'] = "0000-00-00 00:00:00" : $_POST['endDate'] = $_POST['endDate'];
       $features = mysqli_real_escape_string($db, $_POST['features']);
       // $sql = "INSERT INTO events (event_type_id, title, venue, from_date, features, image_url, date_posted) VALUES ('{$_POST['typeId']}','{$_POST['title']}','{$_POST['venue']}','{$_POST['startDate']}','{$_POST['features']}','{$_POST['imageURL']}', NOW())";
-      $sql = "INSERT INTO events (event_type_id, title, venue, from_date, to_date, features, image_url, date_posted) VALUES ('{$_POST['typeId']}','{$_POST['title']}','{$_POST['venue']}','{$_POST['startDate']}','{$_POST['endDate']}','$features','{$_POST['imageURL']}', NOW())";
+      $sql = "INSERT INTO events (event_type_id, title, venue, is_single_day, from_date, to_date, features, image_url, date_posted) VALUES ('{$_POST['typeId']}','{$_POST['title']}','{$_POST['venue']}','{$_POST['isSingleDay']}','{$_POST['startDate']}','{$_POST['endDate']}','$features','{$_POST['imageURL']}', NOW())";
       $result = $db->query($sql);
       $result ? $data['message'] = 'success' : $data['message'] = var_dump($result);
       echo json_encode($data);
@@ -142,8 +144,18 @@ session_start();
         
       }
     }
-
-
+    
+    if($_POST["action"] == "deleteEvent")
+    {
+      $sql = "DELETE FROM events WHERE event_id = '{$_POST['eventId']}'";
+      $result = $db->query($sql);
+      if($result){
+        $data["message"] = "success";
+      } else {
+        $data["message"] = "failed";
+      }
+      echo json_encode($data);
+    }
   }
 
 ?>

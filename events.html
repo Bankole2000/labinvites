@@ -60,7 +60,7 @@
       <div class="container main-content">
         <div class="row">
           <div class="col-sm-12">
-            <h1 class="element-header">Events <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <h1 class="element-header">Events <button type="button" class="btn btn-primary" onclick="resetForm()" data-toggle="modal" data-target="#exampleModal">
              + Add New Event
             </button> </h1>
             <div class="row" id="events-display-area">
@@ -248,7 +248,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="">
+        <form action="" id="eventTotalForm">
           <div class="form-body">
             
             <div class="form-group" style="display: flex;">

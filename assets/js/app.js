@@ -62,6 +62,11 @@ const updateModal = (data) => {
   document.querySelector('.modal-title').innerHTML = 'Update Event';
   eventTypeSelectInput.selectedIndex = data.event_type_id;
   oldEventTypeRadioInput.checked = true;
+  data.is_single_day == "1" ? console.log('is Single Day') : console.log('is NOT single Day');
+  data.is_single_day == "1" ? singleDayLnk.classList.add('active') : singleDayLnk.classList.remove('active');
+  data.is_single_day == "1" ? document.querySelector("#single-day").classList.add('active', 'show') : document.querySelector("#single-day").classList.remove('active', 'show');
+  data.is_single_day == "0" ? document.querySelector("#multiple-days").classList.add('active', 'show') : document.querySelector("#multiple-days").classList.remove('active', 'show');
+  data.is_single_day == "0" ? multipleDayLnk.classList.add('active') : multipleDayLnk.classList.remove('active');
   eventTitleInput.value = data.title;
   eventVenueInput.value = data.venue;
   featuringInput.value = data.features;
@@ -219,6 +224,7 @@ const addEventType = (typeName) => {
 
 const addEvent = ({typeId, title, venue, isSingleDay, startDate, endDate, features, imageURL}) => {
   let action = "addEvent";
+  isSingleDay ? isSingleDay = 1 : isSingleDay = 0;
   $.ajax({
     url: "scripts/events.php",
     method: "POST",
@@ -256,6 +262,32 @@ const addEvent = ({typeId, title, venue, isSingleDay, startDate, endDate, featur
   })
 }
 
+const deleteEvent = (id) => {
+  let action = "deleteEvent";
+  $.ajax({
+    url: "scripts/events.php",
+    method: "POST",
+    data: {
+      action: action, 
+      eventId: id,
+    },
+    dataType: "JSON",
+    success: function(data) {
+      console.log(data);
+      data.message == "success"? console.log('success') : console.log('error');
+    },
+    error: function() {
+      console.log("error");
+    },
+    timeout: timeout
+  })
+}
+
+const resetForm = () => {
+  document.querySelector('#eventTotalForm').reset();
+  document.querySelector('.modal-title').innerHTML = 'Add New Event';
+}
+
 const getEvents = (page = 1) => {
   let action = "getEvents";
   $.ajax({
@@ -291,10 +323,12 @@ const getEvents = (page = 1) => {
                   </ul>
                   <div class="card-body">
                     <a href="#" id="${card.event_id}" class="btn btn-primary card-link updateEvent" data-toggle="modal" data-target="#exampleModal">Update</a>
-                    <a href="#" id="${card.event_id}" class="btn btn-success card-link">View Invites</a>
+                    
+                    <a href="#" id="${card.event_id}" onclick="deleteEvent(${card.event_id})" class="btn btn-danger card-link">Delete</a>
                   </div>
                   <div class="card-footer text-muted">
                     Posted 2 days ago
+                    <a href="#" id="${card.event_id}" class="btn btn-success card-link">View Invites</a>
                   </div>
                 </div>
                 
@@ -303,6 +337,7 @@ const getEvents = (page = 1) => {
             `;
           });
           document.querySelector('#events-display-area').innerHTML = eventCards;
+        
 
         //   console.log(data);
         }
@@ -325,9 +360,6 @@ const updateEvent = ({id, typeId, venue, singleDay, startDate, endDate, features
 
 }
 
-const deleteEvent = (id) => {
-
-}
 
 // singleDateInput = document.querySelector('#single-date');
 singleDateInput.addEventListener('keyup', () => {
@@ -359,6 +391,7 @@ updateEventModalBtn.forEach(button => {
 
 addNewEventBtn.addEventListener('click', (e) => {
   e.preventDefault();
+
   let event = {};
   event.typeId = eventTypeSelectInput.value != 0 ? flagIfInvalid(eventTypeSelectInput, true) : flagIfInvalid(eventTypeSelectInput, false);
   event.title = textRegex.test(eventTitleInput.value) ? flagIfInvalid(eventTitleInput, true) : flagIfInvalid(eventTitleInput, false);
