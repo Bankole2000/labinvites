@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2020 at 05:03 PM
+-- Generation Time: Jan 09, 2020 at 12:51 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -43,7 +43,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`user_id`, `firstname`, `lastname`, `email`, `pass`, `role`, `last_login`) VALUES
-(1, 'Bankole', 'Esan', 'techybanky@gmail.com', 'Bankole1.', 1, '2020-01-07 15:01:14');
+(1, 'Bankole', 'Esan', 'techybanky@gmail.com', 'Bankole1.', 1, '2020-01-09 00:46:31');
 
 -- --------------------------------------------------------
 
@@ -56,6 +56,7 @@ CREATE TABLE `events` (
   `event_type_id` int(100) NOT NULL,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `venue` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `is_single_day` int(4) NOT NULL,
   `from_date` datetime NOT NULL,
   `to_date` datetime DEFAULT NULL,
   `features` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -67,11 +68,8 @@ CREATE TABLE `events` (
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`event_id`, `event_type_id`, `title`, `venue`, `from_date`, `to_date`, `features`, `image_url`, `date_posted`) VALUES
-(1, 1, 'Modern Digital blah blah blah ', 'The Hillton Abuja', '2020-01-03 09:00:00', NULL, 'Talks by really cool people ', 'https://i.imgur.com/WCky8tl.jpg', '2020-01-02 05:54:14'),
-(2, 1, 'Modern Digital blah blah blah ', 'The Hillton Abuja', '2020-01-10 09:00:00', NULL, 'Here\'s some gist about the whole things', 'https://i.imgur.com/WCky8tl.jpg', '2020-01-02 06:17:49'),
-(3, 3, 'Modern Digital blah blah blah ', 'The Hillton Abuja', '2020-01-10 09:00:00', '2020-02-14 23:00:00', 'Here\'s some gist about stuff that\'s going down there', 'https://i.imgur.com/WCky8tl.jpg', '2020-01-02 06:20:14'),
-(4, 1, 'BlueTooth 5.0 and the Nigerian Tech Space', 'Sheraton Hotels Abuja', '2020-01-08 09:00:00', '0000-00-00 00:00:00', 'Featuring Discussions and demonstrations on bluetooth 5.0 and special whatever', 'https://i.imgur.com/WXqHv2G.jpg', '2020-01-06 10:13:29');
+INSERT INTO `events` (`event_id`, `event_type_id`, `title`, `venue`, `is_single_day`, `from_date`, `to_date`, `features`, `image_url`, `date_posted`) VALUES
+(4, 1, 'BlueTooth 5.0 and the Nigerian Tech Space', 'Sheraton Hotels Abuja', 0, '2020-01-08 09:00:00', '0000-00-00 00:00:00', 'Featuring Discussions and demonstrations on bluetooth 5.0 and special whatever', 'https://i.imgur.com/WXqHv2G.jpg', '2020-01-06 10:13:29');
 
 -- --------------------------------------------------------
 
