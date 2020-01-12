@@ -104,17 +104,6 @@ const getEventDetails = (eventId) => {
   })
 }
 
-// const updateUI = (userData) => {
-//   console.log(userData);
-//   console.log(userData.gravatar);
-//   userNameSpan.forEach(el => {
-//     el.innerHTML = userData.firstname;
-//   });
-//   userImageEl.forEach(el => {
-//     el.setAttribute('src', `https://www.gravatar.com/avatar/${userData.gravatar}`);
-//   });
-//  }
-
 
 
 const getEventTypes = () => {
@@ -184,44 +173,6 @@ const addEventType = (typeName) => {
   })
 }
 
-// const getDetails = (email, pass) => {
-//   let action = "newLogin";
-
-//   $.ajax({
-//     url: "scripts/login.php",
-//     method: "POST",
-//     data: {
-//     action: action,
-//     email: email,
-//     pass: pass
-//       }, 
-//     dataType: "JSON",
-//     success: function(data){
-//         console.log(data);
-//         if(data.message === "success"){
-//           updateUI(data);
-//         }
-//         // M.toast({html: `${successIcon} &nbsp; Login Successful &nbsp;  - &nbsp; Redirecting ${loadingIcon}`, classes: "successtoast", completeCallback: () => { window.location.replace("./events.html"); }, displayLength: 2000 });
-//         else if(data.message === "failed"){
-//           M.toast({html: `Not Logged In`, classes: "error", completeCallback: () => { window.location.replace("index.html"); }, displayLength: 1000})
-//         }
-//     },
-    
-//     error: function(){
-//       M.toast({html: `Connection Error &nbsp; ${connectionErrorIcon}`});
-//       // enableButton('signinBtn', true);
-//       // $('#login-btn').html('Sign in <i class="fas fa-sign-in-alt"></i>').css({'color': 'white'});
-//     },
-//     timeout: timeout
-//   })
-// }
-
-// const checkIfLoggedIn = () => {
-//   const email = localStorage.getItem('labemail');
-//   const pass = localStorage.getItem('labpass');
-//   email && pass ? getDetails(email, pass) : M.toast({html: `Not Logged In`, classes: "error", completeCallback: () => { window.location.replace("index.html"); }, displayLength: 1000});
-// }
-
 const addEvent = ({typeId, title, venue, isSingleDay, startDate, endDate, features, imageURL}) => {
   let action = "addEvent";
   isSingleDay ? isSingleDay = 1 : isSingleDay = 0;
@@ -288,6 +239,24 @@ const resetForm = () => {
   document.querySelector('.modal-title').innerHTML = 'Add New Event';
 }
 
+const getPagination = (pageDetails) => {
+  let page = parseInt(pageDetails.curr_page), total = pageDetails.total, noOfPages = pageDetails.no_of_pages;
+    pagination = `
+      <ul class="pagination">
+        <li class="page-item ${noOfPages == 1 || page == 1 ? 'disabled': ''}"><a class="page-link" onclick='getEvents(${page-1})' href="" tabindex="-1">Previous</a></li>
+    `;
+    for (let i = 1; i <= noOfPages; i++) {
+      if (i == page) {
+    pagination += `<li class="page-item active"><a class="page-link" onclick='getEvents(${i})' href="">${i}<span class="sr-only">(current)</span></a></li>`;
+      } else {
+    pagination += `<li class="page-item"><a class="page-link" onclick='getEvents(${i})' href="">${i}</a></li>`;   
+      }      
+    };
+    pagination += `<li class="page-item ${noOfPages == 1 || page == noOfPages ? 'disabled':''}"><a class="page-link" onclick='getEvents(${++page})'>Next</a></li>`;
+    pagination += `</ul>`;
+    document.querySelector('#pagination').innerHTML = pagination;
+}
+
 const getEvents = (page = 1) => {
   let action = "getEvents";
   $.ajax({
@@ -301,9 +270,22 @@ const getEvents = (page = 1) => {
     success: function(data){
         console.log(data);
         if(data.message === "success"){
-          console.log(data.data);
+          console.log(data);
+          getPagination(data.page);
           let eventCards = '';
           data.data.forEach(card => {
+            let today, createdOn, msInDays, diffinDays, wksAgo, daysAgo;
+            today = new Date();
+            createdOn = new Date(card.date_posted);
+            msInDays = 24 * 60 * 60 * 1000;
+            msInHours = 60 * 60 * 1000;
+            diffinDays = Math.floor((today - createdOn)/msInDays);
+            diffinHours = Math.floor((today - createdOn)/msInHours);
+            wksAgo = diffinDays > 7 ? `${Math.floor(diffinDays/7)} wks` : '';
+            daysAgo == 0 ? daysAgo = '' : false;
+            daysAgo = diffinDays > 7 ? `${diffinDays % 7} days` : `${diffinDays} days`;
+            hoursAgo = diffinHours > 24 && diffinHours != 0 ? `${diffinHours % 24} hours` : `${diffinDays} hours`;
+            diff = wksAgo > 0 ? `${wksAgo} ${daysAgo}` : `${daysAgo} ${hoursAgo}`;
             eventCards += 
             `
             <div class="col-md-4">
@@ -327,7 +309,7 @@ const getEvents = (page = 1) => {
                     <a href="#" id="${card.event_id}" onclick="deleteEvent(${card.event_id})" class="btn btn-danger card-link">Delete</a>
                   </div>
                   <div class="card-footer text-muted">
-                    Posted 2 days ago
+                    Posted ${diff} ago
                     <a href="#" id="${card.event_id}" class="btn btn-success card-link">View Invites</a>
                   </div>
                 </div>

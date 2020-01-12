@@ -4,16 +4,26 @@ session_start();
   if (isset($_POST["action"])) 
   {
     require_once('connect.php');
-    
+
     if($_POST["action"] == "getEvents") 
     { 
       $page = $_POST["page"];
       $limit = 6;
+      $sqlCount = "SELECT * FROM events";
+      $resultCount = $db->query($sqlCount);
+      $total = $resultCount->num_rows;
+      $no_of_pages = $total > 0 ? ceil( $total / $limit ) : 0 ;
       $start_from = ($page-1) * $limit;
+      $events_arr = array();
+      $events_arr["page"] = array (
+        'curr_page' => $page,
+        'no_of_pages' => $no_of_pages,
+        'total' => $total
+      );
       $sql = "SELECT * FROM events JOIN event_type ON events.event_type_id = event_type.event_type_id  ORDER BY events.date_posted DESC LIMIT $start_from , $limit";
       $result = $db->query($sql);
       if($result->num_rows > 0){
-        $events_arr = array();
+        
         $events_arr['data'] = array();
         
         while($row = $result->fetch_array()) {
@@ -144,7 +154,7 @@ session_start();
         
       }
     }
-    
+
     if($_POST["action"] == "deleteEvent")
     {
       $sql = "DELETE FROM events WHERE event_id = '{$_POST['eventId']}'";
