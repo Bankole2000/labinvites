@@ -1,0 +1,472 @@
+PIRPLE.COM SAAS MASTERCLASS COURSE OVERVIEW
+WEEK 1
+  Ideation: choose 3 ideas
+  Research: Get Informed
+  Research: Potential Customer profiles
+  Research: Know the Law
+  Ideation: Make a choice
+  Ideation: Story Boards
+  Ideation: Flow Charts
+
+WEEK 2
+  Design: Wireframes
+  Ideation: Naming and Slogans
+  Ideation: Branding & Logos
+  Design: Full-color Desktop Designs
+  Design: Full-color Responsive Designs
+  Design: Clickable Prototypes
+  Ideation: Admin Storyboards
+
+WEEK 3
+  Ideation: Admin flow Charts
+  Design: Admin Wireframes
+  Tech Specs: Bridge the Gap
+  Tech Specs: API Documentation
+  Tech Specs: Background Worker Documentation
+  Tech Specs: Database PseudoSchema
+  Research: Find Your Tools
+
+WEEK 4
+  Research: Find Your Hosts
+  Administration: Get Organized
+  Paperwork: Time to Incorporate
+  Paperwork: Get Your Permits
+  Administration: Get a Lawyer
+  Infrastructure: Secure Your Workstation
+  Infrastructure: Manage Passwords and Private Keys
+
+WEEK 5
+  Infrastructure: Domains & Email Setup
+  Administration: Register Everything
+  Full Stack: Pre-Launch Page
+  Infrastructure: Version & Container Control
+  Infrastructure: Setup and Secure Your Servers
+  Infrastructure: CI / CD Setup
+  Infrastructure: SSL & ELB Setup
+
+WEEK 6
+  Backend: Kong API GateWay
+  Backend: Hello World API
+  Frontend: Hello World Frontends
+  Infrastructure: Basic System Monitoring
+  Infrastructure: Database Setup & Configuration
+  Backend: API Routing & Configuration
+  Backend: Blacklist & Error Handlers
+
+WEEK 7
+  Backend: API Logging & Rate Limiting
+  Backend: User Registration
+  Backend: Adding Email Confirmation
+  Backend: Adding Username Support
+  Backend: Detecting Bot Registrations
+  Backend: Adding 2-Factor Auth
+  Backend: User Login Flow
+
+WEEK 8
+  Backend: User Logout Flow
+  Backend: Password Resets
+  Backend: Account & Profile Settings
+  Backend: Payment & Payout Settings
+  Backend: User Account Deletion
+  Backend: Shopping Cart Setup
+  Backend: CHeckout with Stripe
+
+WEEK 9
+  Backend: Checkout with Paypal
+  Backend: Checkout with Bitcoin
+  Backend: Subscription Payments
+  Backend: Account Credits
+  Backend: Order History & Invoices
+  Backend: User Messages
+  Backend: User Alerts
+
+WEEK 10
+  Backend: Pushing Browse Notifications
+  Backend: Admin DB Schema & Docs
+  Backend: Admin API Routing & Configuration
+  Backend: Admin Error Handlers
+  Backend: Admin API Logging
+  Backend: Google Sign On for Admins 
+  Backend: Launch & Error Switches
+
+WEEK 11
+  Backend: Admin Listing All Users
+  Backend: Admin Banning, Purging and Dumping Users
+  Backend: Admin Deleting and Retrieving Users
+  Backend: Admin Forcing User Logouts
+  Backend: Admin Reserving Usernames
+  Backend: Adming Managing Privacy Policies 
+  Backend: Admin Health & Activity Metrics
+
+WEEK 12
+  Backend: Admin View All Orders
+  Backend: Admin Cancel and Refund Orders
+  Backend: Admin View & Edit Subscriptions
+  Backend: Admin Support Ticket Management
+  Backend: Admin Sending User Notifications
+  Backend: Admin Processing User Payouts
+  Backend: Admin Moderating Flagged Content 
+
+WEEK 13
+  Backend: Admin Disciplinary Actions
+  Backend: Admin Moderating Photos & Text
+  Backend: Admin Managing Products & Services
+  Backend: Admin GeoPricing Setup
+  Backend: Admin GeoPricing Setup 
+  Beckend: Admin Coupon Management
+  Backend: Admin Search 
+  Backend: Admin Alerts 
+
+WEEK 14
+  Backend: Realtime Database Setup
+  Backend: WebSocket API Setup
+  Backend: Websocket Authentication
+  Backend: Realtime Message & Alerts 
+  Backend: Following and Unfollowing
+  Backend: Viewing & Liking Content
+  Backend: Uploading & Submitting Videos
+  
+WEEK 15
+  Backend: User Feeds
+  Backend: Editing & Managing Videos
+  Backend: User profiles
+  Backend: Public Video Pages
+  Backend: Video Unlocking 
+  Backend: Video Ratings
+  Backend: Video Comments
+
+WEEK 16
+  Backend: Content Sharing
+  Backend: Recommended Content
+  Backend: Top Content 
+  Backend: Latest Content
+  Backend: Trending Content 
+  Backend: Recommended Users
+  Backend: Top Users
+
+WEEK 17
+  Backend: Latest Users
+  Backend: Trending Users
+  Backend: Hashtags within Topics
+  Backend: Get Categorized Search Results
+  Backend: Admin Approve New Categories 
+  Backend: Approve New Tags
+  Backend: Admin Approve Videos & Edits
+
+WEEK 18
+  Backend: Admin View All Videos
+  Backend: Admin Moderate Video Comments
+  Backend: Admin Category Management 
+  Backend: Admin Index Management 
+  Backend: Documentation & Wikis
+  Backend: Build Tools
+  Backend: Page Scaffolding 
+
+WEEK 19
+  Frontend: General-Purpose Libraries
+  Frontend: API Interaction Library 
+  Frontend: Websocket Interaction Library
+  Frontend: Auth & Refresh Token Library 
+  Frontend: Stylesheet Setup 
+  Frontend: Basic Navigation 
+  Frontend: Error Pages 
+
+WEEK 20
+  Frontend: Switch-Thrown Pages 
+  Frontend: Basic Registration 
+  Frontend: CAPTCHA Integration
+  Frontend: Browser Notification Setup 
+  Frontend: Login / Logout Flow 
+  Frontend: Password Reset Flow 
+  Frontend: User Profile 
+
+WEEK 21
+  Frontend: Payment Settings
+  Frontend: Shopping Cart 
+  Frontend: Checkout Flow - Stripe, Paypal & Bitcoin
+  Frontend: Subscription Checkout
+  Frontend: Order & Transaction History
+  Frontend: Message Center 
+  Frontend: Alert Management
+
+WEEK 22
+  Frontend: Responsiveness Tweaks
+  Frontend: Websocket Messages 
+  Frontend: Admin Sign-in with Google 
+  Frontend: Admin List Users 
+  Frontend: Admin Delete and Retreive Users 
+  Frontend: Admin Dumping and Purging Users 
+  Frontend: Admin Force User Logout 
+
+WEEK 23
+  Frontend: Admin Reserved Usernames Management 
+  Frontend: Admin Health & Activity Metrics 
+  Frontend: Admin Manage Orders 
+  Frontend: Admin Manage Subscriptions 
+  Frontend: Admin Manage Support Tickets 
+  Frontend: Admin Manage Payouts 
+  Frontend: Admin Moderate Content 
+
+WEEK 24
+  Frontend: Admin Manage Products & Services 
+  Frontend: Admin Search Functionality
+  Frontend: Admin Coupon Management 
+  Frontend: Admin Styling Tweaks 
+  Frontend: Following & Unfollowing
+  Frontend: Video Submission Process 
+  Frontend: Manage All Videos 
+
+WEEK 25
+  Frontend: View & Unlock Videos
+  Frontend: User News Feeds
+  Frontend: User profiles
+  Frontend: Video Comments 
+  Frontend: Video Sharing 
+  Frontend: Category Browsing
+  Frontend: Search Results 
+
+WEEK 26
+   Frontend: Styling Tweaks
+   Frontend: Admin Category Management
+   Frontend: Admin Content Moderation 
+   Frontend: Admin Video Approval 
+   Frontend: Admin Home Page Management 
+   Frontend: Admin Styling Tweaks
+   Launching: Copytext & Pricing 
+
+WEEK 27
+  Launching: Canned Emails & Notification Copy 
+  Launching: Status Page Management 
+  Launching: Complex Health Checks 
+  Launching: Auto-Redeployment Systems
+  Launching: Cross-Browser Testing on Desktop 
+  Launching: Cross-Browser Testing on Mobile 
+  Launching: QA Testing 
+
+WEEK 28
+  Launching: Demo User Management 
+  Launching: Speed Testing 
+  Launching: Load Testing 
+  Launching: XST, XSS and MITM Checks 
+  Launching: Penetration Testing and Bug Bounty Programs 
+  Launching: Off-the-shelf Monitoring Dashboards 
+  Launching: Custom Monitoring Agent
+
+WEEK 29
+  Launching: Custom Monitoring Dashboards
+  Launching: Preparing Your Code for Launch
+  Launching: Throwing the Switch 
+  Launching: Verifying & Sanity-Checking All Systems 
+  Launching: Garbage Traffic Testing
+  Launching: Inviting Friends & Family 
+  Launching: Inviting Beta Users 
+
+WEEK 30
+  Launching: Automated & Manual Feedback
+  Launching: Monitoring Vulnerabilities 
+  Launching: Basic SOP setup 
+  Launching: Take a Deep Breath 
+  Marketing: Initial Blast 
+  SEO: Basic Onsite SEO Techniques 
+  SEO: Prerendering and Serving Bot Content 
+
+WEEK 31
+  SEO: Webmaster Tools Basics 
+  SEO: Rich Snippets 
+  SEO: Shareable Content 
+  SEO: Internationalization 
+  SEO: High Volume SEO Techniques 
+  SEO: Basic Offsite SEO Techniques
+  Marketing: In-Depth Competitor Analysis 
+
+WEEK 32
+  Marketing: In-Depth Market Analysis 
+  Marketing: Determining CPA 
+  Marketing: Setting a Budget & Strategy 
+  Marketing: Twitter Techniques 
+  Marketing: Instragram Techniques
+  Marketing: Youtube Techniques 
+  Marketing: Facebook Techniques 
+
+WEEK 33
+  Marketing: LinkedIn Techniques
+  Marketing: Pinterest Techniques
+  Marketing: Snapchat, Tiktock and Others 
+  Marketing: Syndication & Automation Tools 
+  Marketing: Influencer Marketing 
+  Marketing: Blog Post Marketing 
+  Marketing: Quora Techniques
+
+WEEK 34
+  Marketing: Networking & Meetups 
+  Marketing: Adwords Search 
+  Marketing: Adwords Display Network 
+  Marketing: Adwords Youtube 
+  Marketing: Adwords Shopping 
+  Marketing: Adwords API 
+  Marketing: Retargeting 
+
+WEEK 35
+  Marketing: Conferences 
+  Marketing: Tradeshows
+  Marketing: Affiliate Networks 
+  Marketing: Building an Affiliate Progam 
+  Marketing: Podcasts 
+  Marketing: Swag & Giveaways 
+  Marketing: Flyers 
+
+WEEK 36
+  Public Relations: Overview 
+  Conversions: Tracking Key Metrics
+  Conversions: Background Stat Recalculation 
+  Conversions: Adding Metrics to Admin Dashboard
+  Conversions: Mapping User Flow 
+  Conversions: Identifying User Choke Points 
+  Conversions: Frontend Speed Improvements 
+
+WEEK 37
+  Conversions: Backend Speed Improvements
+  Conversions: Using Surveys 
+  Conversions: Abandoned Cart Reminders 
+  Conversions: Tracking Abandoned Pages 
+  Conversions: Tracking Abandoned Signups 
+  Conversions: Basic Split Testing 
+  Conversions: Building a Split-Testing System 
+
+WEEK 38
+  Conversions: Customized Split Tests 
+  Conversions: Multiple Parallel Split Tests
+  Conversions: Processing Split-Test Data 
+  Conversions: Adding Machine-Learning to Split-Testing 
+  Conversions: Automated Split-Test Variables 
+  Conversions: Using Campaign Landing Pages 
+  Conversions: Using Lead Magnets 
+
+WEEK 39
+  Conversions: Newsletter & Email Marketing Basics 
+  Conversions: Nurture Sequence Basics 
+  Conversions: eBooks to Nurture Sequences 
+  Conversions: Free Trials to Nurture Sequences 
+  Conversions: Free Tiers to Nurture Sequences
+  Conversions: Lead Collections to Nurture Sequences
+  Conversions: The Long Sale
+
+WEEK 40
+  Conversions: Price Optimization 
+  Conversions: Refund Policty Optimization 
+  Conversions: Customer Service Popups for Abandonment Prevention 
+  Conversions: Hello Bars 
+  Conversions: Exit-intent Popups 
+  Conversions: Social Proof Notifications
+  Conversions: Social Proof - User Groups 
+
+WEEK 41
+  Conversions: Social Proof - Review Sites 
+  Conversions: Social Proof - Forum Sites 
+  Conversions: Address Mapping 
+  Conversions: Phone Number Prominence 
+  Conversions: Security & Payment Option Prominence
+  Conversions: As Seen On / As Mentioned in 
+  Conversions: Testimonials 
+
+WEEK 42
+  Conversions: Wikipedia Techniques
+  Conversions: Google Places & Yelp 
+  Conversions: Acquiring Legitimate Reviews 
+  Conversions: Explanier Video Process 
+  Conversions: Explanier Video Process 
+  Conversions: Explanier Video Cartoons 
+  Conversions: Explanier Video Voiceovers 
+  Conversions: Explainer Video Screencasts
+
+WEEK 43
+  Conversions: Explanier Video Media Licenses 
+  Conversions: What not to do 
+  Retention: Tracking Key Metrics 
+  Retention: Background Workers to Recalculate Metrics 
+  Retention: Adding Stats to Admin Dashboard 
+  Retention: User Onboarding Tours & Videos 
+  Retention: User Obnoarding Sequences 
+
+WEEK 44
+  Retention: Re-Engagement Emails for Unused Services 
+  Retention: Notifications & Emails for Used Services 
+  Retention: Badge Rewards 
+  Retention: Power User Identification 
+  Retention: Loyalty Programs 
+  Retention: Recommended Content Improvements 
+  Retention: Top Content Improvements
+
+WEEK 45
+  Retention: Latest Content Improvements
+  Retention: Trending Content Improvements
+  Retention: Recommended User Improvements
+  Retention: Top User Improvements
+  Retention: Latest User Improvements
+  Retention: Trending User Improvements
+  Retention: Tag-to-Tag Relationship Improvements
+
+WEEK 46
+  Retention: User-to-Tag Relationship Improvements
+  Retention: User Categorization & Tagging 
+  Retention: Proactive Techniques for Stale Users 
+  Retention: Proactive Techniques for Failed Payments 
+  Customer Service: Creating an SOP 
+  Customer Service: Plugins Revisited 
+  Customer Service: Facebook Message
+
+WEEK 47
+  Customer Service: Knowledgebase Manual Setup 
+  Customer Service: Organizing Support Messages 
+  Customer Service: Organizing Support Emails 
+  Customer Service: Handling Bug Reports 
+  Customer Service: Secondary Refund & Gifting Policies 
+  Customer Service: International Customer Support 
+  Customer Service: Trolls and Problem Users  
+
+WEEK 48
+  Customer Service: Social Media for Customer Service 
+  Scaling: Determining when to Scale 
+  Scaling: Load Balancing Techniques
+  Scaling: Multiple Availability Zones (AZs)
+  Scaling: Multiple Regions 
+  Scaling: Multiple Hosts 
+  Scaling: Refactoring Services for Scale 
+
+WEEK 49
+  Scaling: Refactoring Services for Cost 
+  Scaling: Scaling in a reversible way 
+  Scaling: Autoscaling Systems 
+  Automation: Alternative Re-Deployments
+  Automation: Automated Deployment Rollbacks 
+  Automation: Automated Phone Line 
+  Automation: DRM Scanner 
+
+WEEK 50
+  Automation: Building a Basic Chatbot
+  Automation: Preloading the Chatbot 
+  Automation: Using Interactions to Traing the Chatbot 
+  Automation: Using Interactions to Build a Knowledgebase 
+  Automation: Using ML to screen and approve images 
+  Automation: Using ML to screen and approve text 
+  Automation: Using ML to screen and approve categories 
+
+WEEK 51
+  Automation: Using ML to screen and approve tags 
+  Automation: Using ML to screen and approve video Content 
+  Automation: Using ML to automate Payouts 
+  Automation: Automating QA with Selenium Tests
+  Automation: Automating QA with MTurk HITs 
+  Automation: Automating Adwords 
+  Automation: Automating Twitter Ads 
+
+WEEK 52
+  Automation: Automating Facebook & Instagam Ads 
+  Automation: Automating Influencer Marketing 
+  Automation: Automating Bookkeeping 
+  Automation: Using ML to Refine Sitemaps 
+  Administration: Outsourcing Your Remaining Tasks 
+  Administration: So What's Next?
+
+GRADUATION
+  Demo Day. 
