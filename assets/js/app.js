@@ -282,10 +282,16 @@ const getEvents = (page = 1) => {
             diffinDays = Math.floor((today - createdOn)/msInDays);
             diffinHours = Math.floor((today - createdOn)/msInHours);
             wksAgo = diffinDays > 7 ? `${Math.floor(diffinDays/7)} wks` : '';
-            daysAgo == 0 ? daysAgo = '' : false;
-            daysAgo = diffinDays > 7 ? `${diffinDays % 7} days` : `${diffinDays} days`;
-            hoursAgo = diffinHours > 24 && diffinHours != 0 ? `${diffinHours % 24} hours` : `${diffinDays} hours`;
+            daysAgo = diffinDays > 0 ? `${diffinDays % 7} days` : ` `;
+            diffinDays < 1 ? daysAgo = ' ' : daysAgo = daysAgo;
+            hoursAgo = diffinHours > 24 && diffinHours != 0 ? `${diffinHours % 24} hours` : `${diffinHours} hours`;
+            diffinHours < 1 ? hoursAgo = 'Less than an hour' : hoursAgo = hoursAgo ;
             diff = wksAgo > 0 ? `${wksAgo} ${daysAgo}` : `${daysAgo} ${hoursAgo}`;
+            console.log(
+              `daysAgo = ${daysAgo} - diffinDays = ${diffinDays}, 
+              hoursAgo = ${hoursAgo} - diffinHours = ${diffinHours}, 
+              wksAgo = ${wksAgo}`
+            )
             eventCards += 
             `
             <div class="col-md-4">
@@ -325,12 +331,13 @@ const getEvents = (page = 1) => {
         }
         // // M.toast({html: `${successIcon} &nbsp; Login Successful &nbsp;  - &nbsp; Redirecting ${loadingIcon}`, classes: "successtoast", completeCallback: () => { window.location.replace("./events.html"); }, displayLength: 2000 });
         else if(data.message === "failed"){
+          alert(data.message);
         //   M.toast({html: `Not Logged In`, classes: "error", completeCallback: () => { window.location.replace("index.html"); }, displayLength: 1000})
-        }
+        };
     },
     
     error: function(){
-      M.toast({html: `Connection Error &nbsp; ${connectionErrorIcon}`});
+      // M.toast({html: `Connection Error &nbsp; ${connectionErrorIcon}`});
       // enableButton('signinBtn', true);
       // $('#login-btn').html('Sign in <i class="fas fa-sign-in-alt"></i>').css({'color': 'white'});
     },

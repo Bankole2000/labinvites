@@ -118,7 +118,8 @@ session_start();
 
     if($_POST["action"] == "addEvent")
     {
-      $endDate;
+
+      $_POST['isSingleDay'] == "true" ? $_POST['isSingleDay'] = 0 : $_POST['isSingleDay'] = 1;
       $_POST['endDate'] == "undefined" ? $_POST['endDate'] = "0000-00-00 00:00:00" : $_POST['endDate'] = $_POST['endDate'];
       $features = mysqli_real_escape_string($db, $_POST['features']);
       // $sql = "INSERT INTO events (event_type_id, title, venue, from_date, features, image_url, date_posted) VALUES ('{$_POST['typeId']}','{$_POST['title']}','{$_POST['venue']}','{$_POST['startDate']}','{$_POST['features']}','{$_POST['imageURL']}', NOW())";
