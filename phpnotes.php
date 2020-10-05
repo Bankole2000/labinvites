@@ -127,5 +127,3 @@ var_dump(parse_url($url, PHP_URL_SCHEME));
   }
   string(4) "http"
 ?> 
-
-?>

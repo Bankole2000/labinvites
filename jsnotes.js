@@ -2,6 +2,11 @@
 // Assuming "?post=1234&action=edit"
 var urlParams = new URLSearchParams(window.location.search);
 
+// A better way to log to the console
+let firstName = "Bankole",
+  lastName = "Esan";
+console.table({ firstName, lastName });
+
 console.log(urlParams.has("post")); // true
 console.log(urlParams.get("action")); // "edit"
 console.log(urlParams.getAll("action")); // ["edit"]
